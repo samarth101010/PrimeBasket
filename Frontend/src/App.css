@@ -1,0 +1,69 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  margin-top: 80px;
+  min-height: calc(100vh - 80px - 200px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #282c3f;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #ff3f6c;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #e63456;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #282c3f;
+  padding: 12px 24px;
+  border: 1px solid #d4d5d9;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: #282c3f;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #94969f;
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  color: #ff3f6c;
+  font-size: 16px;
+}

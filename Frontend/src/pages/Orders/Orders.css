@@ -1,0 +1,175 @@
+.orders-page {
+  padding: 20px 0;
+  padding-top: 140px;
+}
+
+.empty-orders {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-orders .empty-icon {
+  font-size: 80px;
+  color: #d4d5d9;
+  margin-bottom: 20px;
+}
+
+.empty-orders h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #282c3f;
+  margin-bottom: 10px;
+}
+
+.empty-orders p {
+  font-size: 16px;
+  color: #94969f;
+  margin-bottom: 30px;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-card {
+  background: white;
+  border: 1px solid #e9e9ed;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e9e9ed;
+}
+
+.order-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #282c3f;
+  margin-bottom: 5px;
+}
+
+.order-info p {
+  font-size: 14px;
+  color: #94969f;
+}
+
+.order-status {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-delivered {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-transit {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-processing {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.status-cancelled {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.order-item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.order-item img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.order-item .item-details {
+  flex: 1;
+}
+
+.order-item h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #282c3f;
+  margin-bottom: 5px;
+}
+
+.order-item p {
+  font-size: 14px;
+  color: #535665;
+  margin-bottom: 5px;
+}
+
+.order-item span {
+  font-size: 13px;
+  color: #94969f;
+}
+
+.order-item .item-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #282c3f;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #e9e9ed;
+}
+
+.order-total {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #535665;
+}
+
+.order-total strong {
+  font-size: 20px;
+  color: #282c3f;
+}
+
+@media (max-width: 768px) {
+  .order-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .order-footer {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .order-footer button {
+    width: 100%;
+  }
+}

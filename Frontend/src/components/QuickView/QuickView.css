@@ -1,0 +1,252 @@
+.quick-view-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.quick-view-modal {
+  background: white;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.quick-view-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+
+.quick-view-close:hover {
+  background: #ff3f6c;
+  color: white;
+  transform: rotate(90deg);
+}
+
+.quick-view-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 30px;
+}
+
+.quick-view-image {
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.quick-view-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quick-view-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quick-view-brand {
+  font-size: 16px;
+  font-weight: 700;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.quick-view-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #282c3f;
+  margin: 0;
+}
+
+.quick-view-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quick-view-price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.quick-view-price .current-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #282c3f;
+}
+
+.quick-view-price .original-price {
+  font-size: 18px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.quick-view-price .discount {
+  font-size: 16px;
+  color: #ff3f6c;
+  font-weight: 600;
+}
+
+.stock-badge {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.stock-badge.out-of-stock {
+  background: #ffe0e0;
+  color: #d32f2f;
+}
+
+.stock-badge.low-stock {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.quick-view-sizes h4,
+.quick-view-quantity h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #282c3f;
+  margin-bottom: 10px;
+}
+
+.quick-view-sizes .sizes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.quick-view-sizes .size-btn {
+  padding: 10px 20px;
+  border: 1px solid #d0d0d0;
+  background: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.quick-view-sizes .size-btn:hover {
+  border-color: #ff3f6c;
+}
+
+.quick-view-sizes .size-btn.active {
+  background: #ff3f6c;
+  color: white;
+  border-color: #ff3f6c;
+}
+
+.quick-view-quantity .quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.quick-view-quantity .quantity-controls button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #d0d0d0;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.quick-view-quantity .quantity-controls button:hover {
+  background: #ff3f6c;
+  color: white;
+  border-color: #ff3f6c;
+}
+
+.quick-view-quantity .quantity-controls span {
+  font-size: 18px;
+  font-weight: 600;
+  min-width: 30px;
+  text-align: center;
+}
+
+.quick-view-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.quick-view-actions .btn-primary,
+.quick-view-actions .btn-secondary {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .quick-view-content {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-view-image {
+    height: 400px;
+  }
+}
