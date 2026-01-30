@@ -10,10 +10,6 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchOrders();
-  }, []);
-
   const fetchOrders = async () => {
     try {
       setLoading(true);
@@ -26,6 +22,11 @@ const Orders = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchOrders();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const getStatusClass = (status) => {
     switch (status.toLowerCase()) {

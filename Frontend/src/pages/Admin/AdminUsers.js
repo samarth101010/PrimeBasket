@@ -13,10 +13,6 @@ const AdminUsers = () => {
     role: 'user'
   });
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
   const fetchUsers = async () => {
     try {
       setLoading(true);
@@ -29,6 +25,11 @@ const AdminUsers = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleEdit = (user) => {
     setEditingUser(user);

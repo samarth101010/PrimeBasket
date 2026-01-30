@@ -22,11 +22,6 @@ const AdminProducts = () => {
     images: ''
   });
 
-  useEffect(() => {
-    fetchProducts();
-    fetchCategories();
-  }, []);
-
   const fetchProducts = async () => {
     try {
       setLoading(true);
@@ -47,6 +42,12 @@ const AdminProducts = () => {
       console.error('Failed to load categories');
     }
   };
+
+  useEffect(() => {
+    fetchProducts();
+    fetchCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Group products by category
   const groupedProducts = categories.reduce((acc, category) => {

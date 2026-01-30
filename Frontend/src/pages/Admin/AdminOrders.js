@@ -10,10 +10,6 @@ const AdminOrders = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchOrders();
-  }, []);
-
   const fetchOrders = async () => {
     try {
       setLoading(true);
@@ -26,6 +22,11 @@ const AdminOrders = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchOrders();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {

@@ -9,10 +9,6 @@ const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchStats();
-  }, []);
-
   const fetchStats = async () => {
     try {
       setLoading(true);
@@ -25,6 +21,11 @@ const AdminDashboard = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchStats();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString('en-IN', {

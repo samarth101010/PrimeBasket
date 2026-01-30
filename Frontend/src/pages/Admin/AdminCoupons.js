@@ -22,10 +22,6 @@ const AdminCoupons = () => {
     isActive: true
   });
 
-  useEffect(() => {
-    fetchCoupons();
-  }, []);
-
   const fetchCoupons = async () => {
     try {
       setLoading(true);
@@ -37,6 +33,11 @@ const AdminCoupons = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchCoupons();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
