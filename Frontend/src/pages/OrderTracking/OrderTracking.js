@@ -11,10 +11,6 @@ const OrderTracking = () => {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchOrder();
-  }, [orderId]);
-
   const fetchOrder = async () => {
     try {
       setLoading(true);
@@ -27,6 +23,11 @@ const OrderTracking = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchOrder();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [orderId]);
 
   if (loading) {
     return (

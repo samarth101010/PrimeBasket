@@ -26,21 +26,6 @@ const Products = () => {
   const [categories, setCategories] = useState([]);
   const searchQuery = searchParams.get('search') || '';
 
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-
-  useEffect(() => {
-    if (categories.length > 0) {
-      fetchProducts();
-    }
-  }, [currentPage, searchQuery, category, selectedPriceRange, selectedBrands, selectedRating, selectedDiscount, sortBy, categories]);
-
-  // Scroll to top when category or page changes
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [category, currentPage]);
-
   const fetchCategories = async () => {
     try {
       const response = await categoryAPI.getAll();
@@ -101,6 +86,23 @@ const Products = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (categories.length > 0) {
+      fetchProducts();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage, searchQuery, category, selectedPriceRange, selectedBrands, selectedRating, selectedDiscount, sortBy, categories]);
+
+  // Scroll to top when category or page changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [category, currentPage]);
 
   const handlePriceChange = (range) => {
     setSelectedPriceRange(range);
