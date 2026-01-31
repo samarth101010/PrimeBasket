@@ -11,8 +11,10 @@ const Home = () => {
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
       try {
-        const response = await productAPI.getAll({ limit: 4, sort: 'rating' });
-        setFeaturedProducts(response.data.data);
+        const response = await productAPI.getAll({ limit: 8, sort: 'rating' });
+        // Filter only in-stock products and take first 4
+        const inStockProducts = response.data.data.filter(p => p.stock > 0).slice(0, 4);
+        setFeaturedProducts(inStockProducts);
       } catch (error) {
         console.error('Failed to load featured products');
       }
