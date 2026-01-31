@@ -93,19 +93,22 @@ const Products = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Set brand from URL parameter
+  useEffect(() => {
+    if (brandQuery && !selectedBrands.includes(brandQuery)) {
+      setSelectedBrands([brandQuery]);
+    } else if (!brandQuery && selectedBrands.length > 0) {
+      setSelectedBrands([]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [brandQuery]);
+
   useEffect(() => {
     if (categories.length > 0) {
       fetchProducts();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage, searchQuery, brandQuery, category, selectedPriceRange, selectedBrands, selectedRating, selectedDiscount, sortBy, categories]);
-
-  // Set brand from URL parameter
-  useEffect(() => {
-    if (brandQuery && !selectedBrands.includes(brandQuery)) {
-      setSelectedBrands([brandQuery]);
-    }
-  }, [brandQuery, selectedBrands]);
+  }, [currentPage, searchQuery, category, selectedPriceRange, selectedBrands, selectedRating, selectedDiscount, sortBy, categories]);
 
   // Scroll to top when category or page changes
   useEffect(() => {
