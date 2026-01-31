@@ -103,12 +103,12 @@ const Home = () => {
       <div className="brands-section">
         <h2 className="section-title">TOP BRANDS</h2>
         <div className="brands-grid">
-          <div className="brand-card">H&M</div>
-          <div className="brand-card">Nike</div>
-          <div className="brand-card">Levis</div>
-          <div className="brand-card">Zara</div>
-          <div className="brand-card">Puma</div>
-          <div className="brand-card">Roadster</div>
+          <div className="brand-card" onClick={() => navigate('/products?brand=H&M')}>H&M</div>
+          <div className="brand-card" onClick={() => navigate('/products?brand=Nike')}>Nike</div>
+          <div className="brand-card" onClick={() => navigate('/products?brand=Levis')}>Levis</div>
+          <div className="brand-card" onClick={() => navigate('/products?brand=Zara')}>Zara</div>
+          <div className="brand-card" onClick={() => navigate('/products?brand=Puma')}>Puma</div>
+          <div className="brand-card" onClick={() => navigate('/products?brand=Roadster')}>Roadster</div>
         </div>
       </div>
     </div>

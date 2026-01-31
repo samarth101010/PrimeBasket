@@ -25,6 +25,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const searchQuery = searchParams.get('search') || '';
+  const brandQuery = searchParams.get('brand') || '';
 
   const fetchCategories = async () => {
     try {
@@ -97,7 +98,14 @@ const Products = () => {
       fetchProducts();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage, searchQuery, category, selectedPriceRange, selectedBrands, selectedRating, selectedDiscount, sortBy, categories]);
+  }, [currentPage, searchQuery, brandQuery, category, selectedPriceRange, selectedBrands, selectedRating, selectedDiscount, sortBy, categories]);
+
+  // Set brand from URL parameter
+  useEffect(() => {
+    if (brandQuery && !selectedBrands.includes(brandQuery)) {
+      setSelectedBrands([brandQuery]);
+    }
+  }, [brandQuery, selectedBrands]);
 
   // Scroll to top when category or page changes
   useEffect(() => {
