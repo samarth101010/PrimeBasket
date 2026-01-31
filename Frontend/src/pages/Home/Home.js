@@ -1,23 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard/ProductCard';
+import { productAPI } from '../../services/api';
 import './Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchFeaturedProducts = async () => {
+      try {
+        const response = await productAPI.getAll({ limit: 4, sort: 'rating' });
+        setFeaturedProducts(response.data.data);
+      } catch (error) {
+        console.error('Failed to load featured products');
+      }
+    };
+    fetchFeaturedProducts();
+  }, []);
 
   const categories = [
     { id: 1, name: 'Men', image: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&h=500&fit=crop', path: '/products/men' },
     { id: 2, name: 'Women', image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=500&fit=crop', path: '/products/women' },
     { id: 3, name: 'Kids', image: 'https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400&h=500&fit=crop', path: '/products/kids' },
     { id: 4, name: 'Beauty', image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=500&fit=crop', path: '/products/beauty' }
-  ];
-
-  const featuredProducts = [
-    { _id: 'product-1', name: 'Casual Cotton Shirt', brand: 'Roadster', price: 799, originalPrice: 1599, rating: 4.2, reviews: 234, image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&h=400&fit=crop' },
-    { _id: 'product-2', name: 'Slim Fit Denim Jeans', brand: 'Levis', price: 1999, originalPrice: 3999, rating: 4.5, reviews: 567, image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=300&h=400&fit=crop' },
-    { _id: 'product-3', name: 'Floral Summer Dress', brand: 'H&M', price: 1299, originalPrice: 2499, rating: 4.3, reviews: 189, image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=400&fit=crop' },
-    { _id: 'product-4', name: 'Running Sneakers', brand: 'Nike', price: 3499, originalPrice: 5999, rating: 4.7, reviews: 892, image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=400&fit=crop' }
   ];
 
   return (
