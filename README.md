@@ -55,16 +55,7 @@ npm install
 ```
 
 Create a `.env` file in the Backend directory:
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/primebasket
-JWT_SECRET=your_jwt_secret_key
-JWT_EXPIRE=7d
-NODE_ENV=development
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASSWORD=your-app-password
-FRONTEND_URL=http://localhost:3000
-```
+``
 
 Seed the database:
 ```bash
